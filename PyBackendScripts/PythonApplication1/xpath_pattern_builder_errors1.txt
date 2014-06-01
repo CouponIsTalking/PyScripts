@@ -1,0 +1,2 @@
+['http://delhistore.com/Scripts/prodView.asp?idproduct=32894&idCategory=493&Left=Y', 'http://delhistore.com/Scripts/prodView.asp?idproduct=14191&idCategory=462&Left=Y']
+['http://www.americanswan.com/gilmore-girls-pink-shorts.html', 'http://www.americanswan.com/brimstone-navy-blue-shirt.html']

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>1171d4dd-c129-413b-8718-0b41156e97a3</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>process_pending_jobs.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>PythonApplication1</Name>
+    <RootNamespace>PythonApplication1</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>job_types=gen_pr_notf,bypass_txt_update=1</CommandLineArguments>
+    <InterpreterPath />
+    <InterpreterArguments />
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BeautifulSoup.py" />
+    <Compile Include="cdengine.py" />
+    <Compile Include="GenPriceNotf.py" />
+    <Compile Include="CoupDetParser.py" />
+    <Compile Include="coupdetparser_ex.py" />
+    <Compile Include="CoupDetUpdater.py" />
+    <Compile Include="coupdetupdater_ex.py" />
+    <Compile Include="CouponWebInf.py" />
+    <Compile Include="FCGrabber.py" />
+    <Compile Include="fcgrabber_ex.py" />
+    <Compile Include="FCGrabberPkg\__init__.py" />
+    <Compile Include="FCPLinks.py" />
+    <Compile Include="fcplinks_ex.py" />
+    <Compile Include="GetCompInfo.py" />
+    <Compile Include="genprnotf_test.py" />
+    <Compile Include="module1.py" />
+    <Compile Include="price_check.py" />
+    <Compile Include="offer_extractor.py" />
+    <Compile Include="const.py" />
+    <Compile Include="db_connection.py" />
+    <Compile Include="FeatureExtractor.py" />
+    <Compile Include="filter_product_page.py" />
+    <Compile Include="get_features.py" />
+    <Compile Include="get_related_prods.py" />
+    <Compile Include="grouper.py" />
+    <Compile Include="htmlops.py" />
+    <Compile Include="lxmlops.py" />
+    <Compile Include="misc.py" />
+    <Compile Include="PriceDecoder.py" />
+    <Compile Include="process_pending_jobs.py" />
+    <Compile Include="run_price_check.py" />
+    <Compile Include="SeleniumReader.py" />
+    <Compile Include="selenium_extra_ops.py" />
+    <Compile Include="SendPriceNotf.py" />
+    <Compile Include="send_price_notf_ex.py" />
+    <Compile Include="shapes.py" />
+    <Compile Include="site_diver.py" />
+    <Compile Include="TagNames\beauty_prod_names.py" />
+    <Compile Include="TagNames\color_names.py" />
+    <Compile Include="TagNames\elec_item_names.py" />
+    <Compile Include="TagNames\jewellery_item_names.py" />
+    <Compile Include="TagNames\kitchen_item_names.py" />
+    <Compile Include="TagNames\watch_item_names.py" />
+    <Compile Include="TagNames\__init__.py" />
+    <Compile Include="tag_classifier.py" />
+    <Compile Include="test.py" />
+    <Compile Include="test_feature_extractor.py" />
+    <Compile Include="test_get_related_prods.py" />
+    <Compile Include="test_price_decoder.py" />
+    <Compile Include="trigger_pending_job_processing.py" />
+    <Compile Include="update_xpath_patrns.py" />
+    <Compile Include="url_groups.py" />
+    <Compile Include="web_interface.py" />
+    <Compile Include="XPathPatrnMaker.py" />
+    <Compile Include="__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FCGrabberPkg\" />
+    <Folder Include="TagNames\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

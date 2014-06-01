@@ -1,0 +1,24 @@
+import re
+import neg_word_lib
+
+class DoNLP:
+	
+	def __init__(self, s1):
+		self.s1 = s1 
+		
+	# return # of negative words if s1 has a negative word
+	# else return 0
+	def has_negative(self):
+		
+		return 0
+		
+	# return list of negative words in s1
+	def get_negative_word_list(self):
+		return {}
+		
+		
+	
+	
+		
+		
+	

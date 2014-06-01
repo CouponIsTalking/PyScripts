@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	<title>
+		Bring items from multiple sites, know when their prices drop, & buy at your price:
+		TrackerInfos	</title>
+	<link href="/trackit/favicon.ico" type="image/x-icon" rel="icon" /><link href="/trackit/favicon.ico" type="image/x-icon" rel="shortcut icon" /><link rel="stylesheet" type="text/css" href="/trackit/css/cake.generic.css" /><link rel="stylesheet" type="text/css" href="/trackit/css/ab.css" /><link rel="stylesheet" type="text/css" href="/trackit/css/jquery-ui.css" /><link rel="stylesheet" type="text/css" href="/trackit/css/themes/smoothness/jquery-ui.css" />	<script type="text/javascript" src="/trackit/js/custom/common.js"></script>	<script type="text/javascript" src="/trackit/js/jquery-1.10.2.min.js"></script>	<script type="text/javascript" src="/trackit/js/fbinf.js"></script>	<script type="text/javascript" src="/trackit/js/reddit.js"></script>	<script type="text/javascript" src="/trackit/js/jquery-ui.js"></script>	<script type="text/javascript" src="/trackit/js/custom/userauth.js"></script>	<script type="text/javascript" src="/trackit/js/custom/createadv.js"></script>	<script type="text/javascript" src="/trackit/js/custom/trackit_button_click.js"></script>	
+
+	<link rel="stylesheet" type="text/css" href="/trackit/debug_kit/css/debug_toolbar.css" />
+<script type="text/javascript" src="/trackit/debug_kit/js/jquery.js"></script><script type="text/javascript" src="/trackit/debug_kit/js/js_debug_toolbar.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>
+				<img src='http://localhost/trackit//img/8goalslogo.jpg'></img><a href="http://localhost/trackit/">Bring items from multiple sites, know when their prices drop, &amp; buy at your price</a>				<script type="text/javascript" src="/trackit/js/custom/viewcollection_button_click.js"></script>
+<!--ul id="toolbar">
+	<ul id="toolbar-center">
+		<a id="trackit1234567890AButton">
+		<img onclick="trackit1234567890showiframe( $(this) );" alt="track this item" src="http://localhost/AB/img/trackit.gif" style="width:30px; height:30px; cursor:pointer;"></img>
+		</a>
+		<red_button>TrackIt</red_button>
+	</ul>					
+</ul-->					
+<div class='tracker_top'>
+<div id="trackit1234567890AButton">
+<!--img onclick="trackit1234567890showiframe( $(this) );" alt="track this item" src="http://localhost/AB/img/trackit.gif" style="width:30px; height:30px; cursor:pointer;"></img-->
+<purple_button onclick="trackit1234567890showiframe( $(this) );" alt="track this item" style="font-size:20px;">TrackPrice</purple_button>
+</div>
+<div id="viewcollection1234567890AButton">
+<green_button onclick="viewcollection1234567890showform($(this));" alt="view your collection" style="font-size:20px;">ViewYourCollection</green_button></div>
+
+</div>
+
+<div id="viewcollection_part1_form" style='display:none;'>
+<div class='email_input_for_collection'>
+	<form>
+	<!--input type='checkbox'>email when price drop to my</input-->
+
+	<label for='view_collect_input_email' style='float:left; font-size:12px;'>email :</label>
+	<input id='view_collect_input_email' name='view_collect_input_email' style='font-size: 15px; width:300; float:left;'></input>
+	<br/>
+	<br/>
+	<div style='clear:both'></div>
+	<track_this_item_button onclick="viewcollect1234567890_part1( $(this) );">Get My Collections</track_this_item_button>
+	</form>
+</div>
+<div class='collection_list' style='display:none'>
+	<form>
+		<track_this_item_button onclick="viewcollect1234567890_part2( $(this) );">Show Selected Collections</track_this_item_button>
+	</form>
+</div>
+<div id="msg">We're asking for email, so that we can look up your collection by your email.</div>
+
+</div>				
+
+			</h1>
+			
+
+<div onclick='show_user_register_form();' class='auth_user'>
+	register
+</div>
+<div onclick='show_user_login_form();' class='auth_user'>
+	login
+</div>
+
+<div class='user_register_form'></div>
+<div class='user_login_form'></div>		</div>
+		<div id="content">
+
+			
+			0		</div>
+		<div id='footer'><a href="http://localhost/trackit/" target="_blank"><img src="/trackit/img/8goalslogo.jpg" alt="Bring items from multiple sites, know when their prices drop, &amp; buy at your price" border="0" /></a></div>		
+	</div>
+		
+
+<div class="success_msg"></div>
+<div class="info_msg"></div>
+<div class="error_msg"></div>
+<div class="image_div"></div>
+<div class="video_div"></div>
+<div id="fade"></div>
+
+<div id="fb-root"></div>
+<div style="clear:both"></div>
+<script>
+	var $SITE_NAME = 'http://localhost/trackit/'; //'http://localhost/trackit/';
+	
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '394542280676856',                        // App ID from the app dashboard
+      channelUrl : 'http://localhost/AB/channel.html', // Channel file for x-domain comms
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+	
+	SubscribeAuthEvents();
+	
+  };
+
+  // Load the SDK asynchronously
+  LoadFBSdk(document, 'script', 'facebook-jssdk');
+  
+  $( document ).ready(function() {
+		if (typeof(RunOnLoad) == "function")
+		{
+			RunOnLoad();
+		}
+	});
+</script>
+
+	
+<div id="debug-kit-toolbar">
+			<ul id="panel-tabs">
+			<li class="panel-tab icon">
+				<a href="#hide" id="hide-toolbar">
+					<img src="/trackit/debug_kit/img/cake.icon.png" alt="CakePHP" />				</a>
+			</li>
+								<li class="panel-tab">
+			<a href="#history">History</a>				<div class="panel-content" id="history-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> Request History</h2>
+	4 previous requests available	<ul class="history-list">
+		<li><a href="#" class="history-link" id="history-restore-current">Restore to current request</a>		</li>
+					<li><a href="/trackit/debug_kit/toolbar_access/history_state/1" class="history-link">tracker_infos/add_tracker_info_from_script/fksdfosdofolekrw7etgf474r234</a></li>
+					<li><a href="/trackit/debug_kit/toolbar_access/history_state/2" class="history-link">tracker_infos/add_tracker_info_from_script/fksdfosdofolekrw7etgf474r234</a></li>
+					<li><a href="/trackit/debug_kit/toolbar_access/history_state/3" class="history-link">tracker_infos/add_regex_info_from_script/fksdfosdofolekrw7etgf474r234</a></li>
+					<li><a href="/trackit/debug_kit/toolbar_access/history_state/4" class="history-link">tracker_infos/add_tracker_info_from_script/fksdfosdofolekrw7etgf474r234</a></li>
+			</ul>
+						</div>
+						<div class="panel-content-data panel-history" id="history-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#session">Session</a>				<div class="panel-content" id="session-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Session</h2>
+<ul class="neat-array depth-0"><li><strong>Config</strong><ul class="neat-array depth-1"><li><strong>userAgent</strong>3286b0af1ebde038ae9c39d830b92554</li><li><strong>time</strong>1387353661</li><li><strong>countdown</strong>10</li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="session-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#request">Request</a>				<div class="panel-content" id="request-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> Request</h2>
+
+<h4>Cake Params</h4>
+<ul class="neat-array depth-0"><li><strong>plugin</strong>(null)</li><li><strong>controller</strong>tracker_infos</li><li><strong>action</strong>add_regex_info_from_script</li><li><strong>named</strong>(empty)</li><li><strong>pass</strong><ul class="neat-array depth-1"><li><strong>0</strong>fksdfosdofolekrw7etgf474r234</li></ul></li></ul>
+<h4>Post data</h4>
+<ul class="neat-array depth-0"><li><strong>website</strong>www.koovs.com</li><li><strong>details_xpath_regex</strong></li><li><strong>image_and_title_parent_xpath_regex</strong></li><li><strong>pimg_xpath_regex</strong></li><li><strong>pimg_xpath4_regex</strong></li><li><strong>pimg_xpath5_regex</strong></li><li><strong>pimg_xpath1_regex</strong></li><li><strong>urllib2_pimg_xpath3_regex</strong></li><li><strong>urllib2_pimg_xpath2_regex</strong></li><li><strong>urllib2_pimg_xpath1_regex</strong></li><li><strong>pricexpath_regex</strong></li><li><strong>title_price_xpath_regex</strong></li><li><strong>urllib2_pimg_xpath5_regex</strong></li><li><strong>image_and_details_container_xpath_regex</strong></li><li><strong>oldpricexpath_regex</strong></li><li><strong>titlexpath_regex</strong></li><li><strong>pimg_xpath2_regex</strong></li><li><strong>pimg_xpath3_regex</strong></li><li><strong>urllib2_pimg_xpath4_regex</strong></li></ul>
+<h4>Query string</h4>
+<p class="info">No querystring data.</p>
+<h4>Cookie</h4>
+	<p class="info">To view Cookies, add CookieComponent to Controller</p>
+
+<h4>Current Route</h4>
+<ul class="neat-array depth-0"><li><strong>keys</strong><ul class="neat-array depth-1"><li><strong>0</strong>controller</li><li><strong>1</strong>action</li></ul></li><li><strong>options</strong>(empty)</li><li><strong>defaults</strong><ul class="neat-array depth-1"><li><strong>plugin</strong>(null)</li></ul></li><li><strong>template</strong>/:controller/:action/*</li></ul>						</div>
+						<div class="panel-content-data panel-history" id="request-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#sqllog">Sqllog</a>				<div class="panel-content" id="sqllog-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Sql Logs</h2>
+		<div class="sql-log-panel-query-log">
+		<h4>default</h4>
+		<h5>Total Time: 2 ms <br />Total Queries: 2 queries</h5><table class="debug-table"><tr><th>Query</th> <th>Affected</th> <th>Num. rows</th> <th>Took (ms)</th> <th>Actions</th></tr><tr class="odd"><td>SELECT `Company`.`id`, `Company`.`name`, `Company`.`website`, `Company`.`email`, `Company`.`phone`, `Company`.`topic1`, `Company`.`topic2`, `Company`.`enabled` FROM `trackit_db_test`.`companies` AS `Company`   WHERE `website` = &#039;www.koovs.com&#039;    LIMIT 1</td> <td>1</td> <td>1</td> <td>1</td> <td><form action="/trackit/debug_kit/toolbar_access/sql_explain" id="logForm0_9592" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div><input type="hidden" name="data[log][ds]" id="logDs0_9592" value="default"/><input type="hidden" name="data[log][sql]" id="logSql0_9592" value="SELECT `Company`.`id`, `Company`.`name`, `Company`.`website`, `Company`.`email`, `Company`.`phone`, `Company`.`topic1`, `Company`.`topic2`, `Company`.`enabled` FROM `trackit_db_test`.`companies` AS `Company`   WHERE `website` = &#039;www.koovs.com&#039;    LIMIT 1"/><input type="hidden" name="data[log][hash]" id="logHash0_9592" value="e730d55803eef223052b125f48d21ff61532884d"/><input  class="sql-explain-link" type="submit" value="Explain"/></form></td></tr>
+<tr class="even"><td>SELECT `TrackerInfo`.`id`, `TrackerInfo`.`company_id`, `TrackerInfo`.`titlexpath`, `TrackerInfo`.`pricexpath`, `TrackerInfo`.`oldpricexpath`, `TrackerInfo`.`title_price_xpath`, `TrackerInfo`.`pimg_xpath`, `TrackerInfo`.`title_price_css`, `TrackerInfo`.`details_xpath`, `TrackerInfo`.`pimg_xpath1`, `TrackerInfo`.`pimg_xpath2`, `TrackerInfo`.`pimg_xpath3`, `TrackerInfo`.`pimg_xpath4`, `TrackerInfo`.`pimg_xpath5`, `TrackerInfo`.`urllib2_pimg_xpath1`, `TrackerInfo`.`urllib2_pimg_xpath2`, `TrackerInfo`.`urllib2_pimg_xpath3`, `TrackerInfo`.`urllib2_pimg_xpath4`, `TrackerInfo`.`urllib2_pimg_xpath5`, `TrackerInfo`.`image_and_title_parent_xpath`, `TrackerInfo`.`image_and_details_container_xpath`, `TrackerInfo`.`product_id_for_regex`, `TrackerInfo`.`titlexpath_regex`, `TrackerInfo`.`pricexpath_regex`, `TrackerInfo`.`oldpricexpath_regex`, `TrackerInfo`.`title_price_xpath_regex`, `TrackerInfo`.`pimg_xpath_regex`, `TrackerInfo`.`pimg_xpath1_regex`, `TrackerInfo`.`pimg_xpath2_regex`, `TrackerInfo`.`pimg_xpath3_regex`, `TrackerInfo`.`pimg_xpath4_regex`, `TrackerInfo`.`pimg_xpath5_regex`, `TrackerInfo`.`urllib2_pimg_xpath1_regex`, `TrackerInfo`.`urllib2_pimg_xpath2_regex`, `TrackerInfo`.`urllib2_pimg_xpath3_regex`, `TrackerInfo`.`urllib2_pimg_xpath4_regex`, `TrackerInfo`.`urllib2_pimg_xpath5_regex`, `TrackerInfo`.`image_and_title_parent_xpath_regex`, `TrackerInfo`.`image_and_details_container_xpath_regex`, `TrackerInfo`.`is_image_in_og_image_meta_tag`, `TrackerInfo`.`pinterest_position`, `TrackerInfo`.`price_cur_code`, `TrackerInfo`.`old_price_cur_code` FROM `trackit_db_test`.`tracker_info` AS `TrackerInfo`   WHERE `company_id` = 126    LIMIT 1</td> <td>1</td> <td>1</td> <td>1</td> <td><form action="/trackit/debug_kit/toolbar_access/sql_explain" id="logForm1_1949" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div><input type="hidden" name="data[log][ds]" id="logDs1_1949" value="default"/><input type="hidden" name="data[log][sql]" id="logSql1_1949" value="SELECT `TrackerInfo`.`id`, `TrackerInfo`.`company_id`, `TrackerInfo`.`titlexpath`, `TrackerInfo`.`pricexpath`, `TrackerInfo`.`oldpricexpath`, `TrackerInfo`.`title_price_xpath`, `TrackerInfo`.`pimg_xpath`, `TrackerInfo`.`title_price_css`, `TrackerInfo`.`details_xpath`, `TrackerInfo`.`pimg_xpath1`, `TrackerInfo`.`pimg_xpath2`, `TrackerInfo`.`pimg_xpath3`, `TrackerInfo`.`pimg_xpath4`, `TrackerInfo`.`pimg_xpath5`, `TrackerInfo`.`urllib2_pimg_xpath1`, `TrackerInfo`.`urllib2_pimg_xpath2`, `TrackerInfo`.`urllib2_pimg_xpath3`, `TrackerInfo`.`urllib2_pimg_xpath4`, `TrackerInfo`.`urllib2_pimg_xpath5`, `TrackerInfo`.`image_and_title_parent_xpath`, `TrackerInfo`.`image_and_details_container_xpath`, `TrackerInfo`.`product_id_for_regex`, `TrackerInfo`.`titlexpath_regex`, `TrackerInfo`.`pricexpath_regex`, `TrackerInfo`.`oldpricexpath_regex`, `TrackerInfo`.`title_price_xpath_regex`, `TrackerInfo`.`pimg_xpath_regex`, `TrackerInfo`.`pimg_xpath1_regex`, `TrackerInfo`.`pimg_xpath2_regex`, `TrackerInfo`.`pimg_xpath3_regex`, `TrackerInfo`.`pimg_xpath4_regex`, `TrackerInfo`.`pimg_xpath5_regex`, `TrackerInfo`.`urllib2_pimg_xpath1_regex`, `TrackerInfo`.`urllib2_pimg_xpath2_regex`, `TrackerInfo`.`urllib2_pimg_xpath3_regex`, `TrackerInfo`.`urllib2_pimg_xpath4_regex`, `TrackerInfo`.`urllib2_pimg_xpath5_regex`, `TrackerInfo`.`image_and_title_parent_xpath_regex`, `TrackerInfo`.`image_and_details_container_xpath_regex`, `TrackerInfo`.`is_image_in_og_image_meta_tag`, `TrackerInfo`.`pinterest_position`, `TrackerInfo`.`price_cur_code`, `TrackerInfo`.`old_price_cur_code` FROM `trackit_db_test`.`tracker_info` AS `TrackerInfo`   WHERE `company_id` = 126    LIMIT 1"/><input type="hidden" name="data[log][hash]" id="logHash1_1949" value="0b692a9c2d6438878efe9d1b3557bcd74644b415"/><input  class="sql-explain-link" type="submit" value="Explain"/></form></td></tr></table>		<h4>Query Explain:</h4>
+		<div id="sql-log-explain-default">
+			<a id="debug-kit-explain-default"> </a>
+			<p>Click an "Explain" link above, to see the query explanation.</p>
+		</div>
+	</div>
+							</div>
+						<div class="panel-content-data panel-history" id="sqllog-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#timer">Timer</a>				<div class="panel-content" id="timer-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<div class="debug-info">
+	<h2>Memory</h2>
+	<div class="peak-mem-use">
+	<p><strong>Peak Memory Use</strong> 10.07 MB</p>	</div>
+
+	<table class="debug-table"><tr><th>Message</th> <th>Memory use</th></tr><tr class="odd"><td>Component initialization</td> <td>4.23 MB</td></tr>
+<tr class="even"><td>Controller action start</td> <td>4.63 MB</td></tr>
+<tr class="odd"><td>Controller render start</td> <td>6.99 MB</td></tr>
+<tr class="even"><td>View render complete</td> <td>8.20 MB</td></tr></table></div>
+
+<div class="debug-info debug-timers">
+	<h2>Timers</h2>
+	<div class="request-time">
+				<p><strong>Total Request Time:</strong> 402 (ms)</p>	</div>
+<table class="debug-table"><tr><th>Message</th> <th>Time in ms</th> <th>Graph</th></tr><tr class="odd"><td>Core Processing (Derived from $_SERVER["REQUEST_TIME"])</td> <td>164.47</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 0px; width: 144px" title="Starting 0.00ms into the request, taking 164.47ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td>Event: Controller.initialize</td> <td>0.22</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 144px; width: 1px" title="Starting 164.47ms into the request, taking 0.22ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Event: Controller.startup</td> <td>2.02</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 144px; width: 2px" title="Starting 164.95ms into the request, taking 2.02ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td>Controller action</td> <td>69.33</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 146px; width: 61px" title="Starting 166.72ms into the request, taking 69.33ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Event: Controller.beforeRender</td> <td>42.75</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 206px; width: 37px" title="Starting 235.95ms into the request, taking 42.75ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Processing toolbar data</td> <td>42.03</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 207px; width: 37px" title="Starting 236.21ms into the request, taking 42.03ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Rendering View</td> <td>34.68</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 260px; width: 30px" title="Starting 296.87ms into the request, taking 34.68ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Event: View.beforeRender</td> <td>0.22</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 263px; width: 1px" title="Starting 300.26ms into the request, taking 0.22ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo; Rendering APP\View\TrackerInfos\add_regex_info_from_script.ctp</td> <td>1.37</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 263px; width: 1px" title="Starting 300.91ms into the request, taking 1.37ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Event: View.afterRender</td> <td>0.19</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 265px; width: 1px" title="Starting 302.60ms into the request, taking 0.19ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo; Event: View.beforeLayout</td> <td>0.20</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 266px; width: 1px" title="Starting 303.61ms into the request, taking 0.20ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo; Rendering APP\View\Layouts\default.ctp</td> <td>26.68</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 266px; width: 23px" title="Starting 304.30ms into the request, taking 26.68ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td> &raquo;  &raquo; Rendering APP\View\Elements\layout/tracker_top.ctp</td> <td>2.38</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 279px; width: 2px" title="Starting 319.18ms into the request, taking 2.38ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="even"><td> &raquo;  &raquo; Rendering APP\View\Elements\layout/header.ctp</td> <td>2.26</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 283px; width: 2px" title="Starting 323.11ms into the request, taking 2.26ms" class="debug-kit-graph-bar-value"> </div></div></td></tr>
+<tr class="odd"><td>Event: View.afterLayout</td> <td>0.00</td> <td><div style="width: 350px;" class="debug-kit-graph-bar"><div style="margin-left: 290px; width: 1px" title="Starting 331.40ms into the request, taking 0.00ms" class="debug-kit-graph-bar-value"> </div></div></td></tr></table></div>
+						</div>
+						<div class="panel-content-data panel-history" id="timer-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#log">Log</a>				<div class="panel-content" id="log-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>Logs</h2>
+<div class="code-table">
+				<p class="info">There were no log entries made this request</p>
+	</div>
+						</div>
+						<div class="panel-content-data panel-history" id="log-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#variables">Variables</a>				<div class="panel-content" id="variables-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> View Variables</h2>
+<ul class="neat-array depth-0"><li><strong>result</strong>0</li><li><strong>$request->data</strong><ul class="neat-array depth-1"><li><strong>website</strong>www.koovs.com</li><li><strong>details_xpath_regex</strong></li><li><strong>image_and_title_parent_xpath_regex</strong></li><li><strong>pimg_xpath_regex</strong></li><li><strong>pimg_xpath4_regex</strong></li><li><strong>pimg_xpath5_regex</strong></li><li><strong>pimg_xpath1_regex</strong></li><li><strong>urllib2_pimg_xpath3_regex</strong></li><li><strong>urllib2_pimg_xpath2_regex</strong></li><li><strong>urllib2_pimg_xpath1_regex</strong></li><li><strong>pricexpath_regex</strong></li><li><strong>title_price_xpath_regex</strong></li><li><strong>urllib2_pimg_xpath5_regex</strong></li><li><strong>image_and_details_container_xpath_regex</strong></li><li><strong>oldpricexpath_regex</strong></li><li><strong>titlexpath_regex</strong></li><li><strong>pimg_xpath2_regex</strong></li><li><strong>pimg_xpath3_regex</strong></li><li><strong>urllib2_pimg_xpath4_regex</strong></li></ul></li><li><strong>$this->validationErrors</strong><ul class="neat-array depth-1"><li><strong>Company</strong>(empty)</li><li><strong>TrackerInfo</strong>(empty)</li></ul></li><li><strong>Loaded Helpers</strong><ul class="neat-array depth-1"><li><strong>0</strong>CommonFunc</li><li><strong>1</strong>Number</li><li><strong>2</strong>SimpleGraph</li><li><strong>3</strong>DebugTimer</li><li><strong>4</strong>Toolbar</li><li><strong>5</strong>Html</li><li><strong>6</strong>Session</li><li><strong>7</strong>Js</li><li><strong>8</strong>HtmlToolbar</li><li><strong>9</strong>Form</li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="variables-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#environment">Environment</a>				<div class="panel-content" id="environment-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2>App Constants</h2>
+<table class="debug-table"><tr><th>Constant</th> <th>Value</th></tr><tr class="odd"><td>GENERIC_APPNAME</td> <td>SaveThisItem</td></tr>
+<tr class="even"><td>FBAPPID</td> <td>394542280676856</td></tr>
+<tr class="odd"><td>FBAPPSECRET</td> <td>63f9dc4fa63e4df48b65573d4cc41eaf</td></tr>
+<tr class="even"><td>IMGUR_CLIENTID</td> <td>d063a98620fb96d</td></tr>
+<tr class="odd"><td>IMGUR_CLIENTSECRET</td> <td>854a666be82878b0ffa14a13f1b9728d8ce2370d</td></tr>
+<tr class="even"><td>SITE_NAME</td> <td>http://localhost/trackit/</td></tr>
+<tr class="odd"><td>CONTENT_IMG_FOLDER</td> <td>http://localhost/trackit/img/contents/</td></tr>
+<tr class="even"><td>CONTENT_IMG_FOLDER_LOCAL_PATH</td> <td>C:/wamp/www/trackit/app/webroot/img/contents/</td></tr>
+<tr class="odd"><td>CONTENT_IMG_FOLDER_ALIAS</td> <td>/trackit_content_upload_folder</td></tr>
+<tr class="even"><td>PYTHON_SCRIPTS_FOLDER</td> <td>C:/wamp/www/trackit/app/webroot/py/trackit/PythonApplication1/PythonApplication1/</td></tr></table>
+<h2>CakePHP Constants</h2>
+<table class="debug-table"><tr><th>Constant</th> <th>Value</th></tr><tr class="odd"><td>APP</td> <td>C:\wamp\www\trackit\app\</td></tr>
+<tr class="even"><td>APP_DIR</td> <td>app</td></tr>
+<tr class="odd"><td>APPLIBS</td> <td>C:\wamp\www\trackit\app\Lib\</td></tr>
+<tr class="even"><td>CACHE</td> <td>C:\wamp\www\trackit\app\tmp\cache\</td></tr>
+<tr class="odd"><td>CAKE</td> <td>C:\wamp\www\trackit\lib\Cake\</td></tr>
+<tr class="even"><td>CAKE_CORE_INCLUDE_PATH</td> <td>C:\wamp\www\trackit\lib</td></tr>
+<tr class="odd"><td>CORE_PATH</td> <td>C:\wamp\www\trackit\lib\</td></tr>
+<tr class="even"><td>CAKE_VERSION</td> <td>2.4.0-RC2</td></tr>
+<tr class="odd"><td>CSS</td> <td>C:\wamp\www\trackit\app\webroot\css\</td></tr>
+<tr class="even"><td>CSS_URL</td> <td>css/</td></tr>
+<tr class="odd"><td>DS</td> <td>\</td></tr>
+<tr class="even"><td>FULL_BASE_URL</td> <td>http://localhost</td></tr>
+<tr class="odd"><td>IMAGES</td> <td>C:\wamp\www\trackit\app\webroot\img\</td></tr>
+<tr class="even"><td>IMAGES_URL</td> <td>img/</td></tr>
+<tr class="odd"><td>JS</td> <td>C:\wamp\www\trackit\app\webroot\js\</td></tr>
+<tr class="even"><td>JS_URL</td> <td>js/</td></tr>
+<tr class="odd"><td>LOGS</td> <td>C:\wamp\www\trackit\app\tmp\logs\</td></tr>
+<tr class="even"><td>ROOT</td> <td>C:\wamp\www\trackit</td></tr>
+<tr class="odd"><td>TESTS</td> <td>C:\wamp\www\trackit\app\Test\</td></tr>
+<tr class="even"><td>TMP</td> <td>C:\wamp\www\trackit\app\tmp\</td></tr>
+<tr class="odd"><td>VENDORS</td> <td>C:\wamp\www\trackit\vendors\</td></tr>
+<tr class="even"><td>WEBROOT_DIR</td> <td>webroot</td></tr>
+<tr class="odd"><td>WWW_ROOT</td> <td>C:\wamp\www\trackit\app\webroot\</td></tr></table>
+<h2>PHP Environment</h2>
+<table class="debug-table"><tr><th>Environment Variable</th> <th>Value</th></tr><tr class="odd"><td>Php Version</td> <td>5.4.12</td></tr>
+<tr class="even"><td>Redirect Redirect Status</td> <td>200</td></tr>
+<tr class="odd"><td>Redirect Status</td> <td>200</td></tr>
+<tr class="even"><td>Http Accept Encoding</td> <td>identity</td></tr>
+<tr class="odd"><td>Content Length</td> <td>449</td></tr>
+<tr class="even"><td>Http Host</td> <td>localhost</td></tr>
+<tr class="odd"><td>Content Type</td> <td>application/x-www-form-urlencoded</td></tr>
+<tr class="even"><td>Http Connection</td> <td>close</td></tr>
+<tr class="odd"><td>Http User Agent</td> <td>Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)</td></tr>
+<tr class="even"><td>Path</td> <td>C:\Perl64\site\bin;C:\Perl64\bin;C:\Python27;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Qualcomm\PHMDB;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files (x86)\Microsoft Application Virtualization Client;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Perforce;C:\Program Files (x86)\Windows Kits.1\Windows Performance Toolkit\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server0\Tools\Binn\;C:\cygwin\bin;C:\Program Files (x86)\Tesseract-OCR;C:\Program Files (x86)\VideoLAN\VLC;</td></tr>
+<tr class="odd"><td>Systemroot</td> <td>C:\WINDOWS</td></tr>
+<tr class="even"><td>Comspec</td> <td>C:\WINDOWS\system32\cmd.exe</td></tr>
+<tr class="odd"><td>Pathext</td> <td>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</td></tr>
+<tr class="even"><td>Windir</td> <td>C:\WINDOWS</td></tr>
+<tr class="odd"><td>Server Signature</td> <td></td></tr>
+<tr class="even"><td>Server Software</td> <td>Apache/2.4.4 (Win64) PHP/5.4.12</td></tr>
+<tr class="odd"><td>Server Name</td> <td>localhost</td></tr>
+<tr class="even"><td>Server Addr</td> <td>127.0.0.1</td></tr>
+<tr class="odd"><td>Server Port</td> <td>80</td></tr>
+<tr class="even"><td>Remote Addr</td> <td>127.0.0.1</td></tr>
+<tr class="odd"><td>Document Root</td> <td>C:/wamp/www</td></tr>
+<tr class="even"><td>Request Scheme</td> <td>http</td></tr>
+<tr class="odd"><td>Context Prefix</td> <td></td></tr>
+<tr class="even"><td>Context Document Root</td> <td>C:/wamp/www</td></tr>
+<tr class="odd"><td>Server Admin</td> <td>admin@example.com</td></tr>
+<tr class="even"><td>Script Filename</td> <td>C:/wamp/www/trackit/app/webroot/index.php</td></tr>
+<tr class="odd"><td>Remote Port</td> <td>50445</td></tr>
+<tr class="even"><td>Redirect Url</td> <td>/trackit/app/webroot/tracker_infos/add_regex_info_from_script/fksdfosdofolekrw7etgf474r234</td></tr>
+<tr class="odd"><td>Gateway Interface</td> <td>CGI/1.1</td></tr>
+<tr class="even"><td>Server Protocol</td> <td>HTTP/1.1</td></tr>
+<tr class="odd"><td>Request Method</td> <td>POST</td></tr>
+<tr class="even"><td>Query String</td> <td></td></tr>
+<tr class="odd"><td>Request Uri</td> <td>/trackit/tracker_infos/add_regex_info_from_script/fksdfosdofolekrw7etgf474r234</td></tr>
+<tr class="even"><td>Script Name</td> <td>/trackit/app/webroot/index.php</td></tr>
+<tr class="odd"><td>Php Self</td> <td>/trackit/app/webroot/index.php</td></tr>
+<tr class="even"><td>Request Time Float</td> <td>1387094460.424</td></tr>
+<tr class="odd"><td>Request Time</td> <td>1387094460</td></tr></table>						</div>
+						<div class="panel-content-data panel-history" id="environment-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+								<li class="panel-tab">
+			<a href="#include">Include</a>				<div class="panel-content" id="include-tab">
+					<a href="#" class="panel-toggle ui-control ui-button">+</a>
+					<div class="panel-resize-region">
+						<div class="panel-content-data">
+							<h2> Included Files</h2>
+
+<h4>Include Paths</h4>
+<ul class="neat-array depth-0"><li><strong>0</strong>C:\wamp\www\trackit\lib</li><li><strong>2</strong>C:\php\pear</li><li><strong>3</strong>-&gt; C:\wamp\www\trackit\lib\Cake\</li></ul>
+<h4>Included Files</h4>
+<ul class="neat-array depth-0"><li><strong>core</strong><ul class="neat-array depth-1"><li><strong>Other</strong><ul class="neat-array depth-2"><li><strong>0</strong>CORE/bootstrap.php</li><li><strong>1</strong>CORE/basics.php</li><li><strong>2</strong>CORE/Core\App.php</li><li><strong>3</strong>CORE/Error\exceptions.php</li><li><strong>4</strong>CORE/Core\Configure.php</li><li><strong>5</strong>CORE/Utility\Hash.php</li><li><strong>6</strong>CORE/Cache\Cache.php</li><li><strong>7</strong>CORE/Cache\Engine\FileEngine.php</li><li><strong>8</strong>CORE/Cache\CacheEngine.php</li><li><strong>9</strong>CORE/Utility\Inflector.php</li><li><strong>10</strong>CORE/Error\ErrorHandler.php</li><li><strong>11</strong>CORE/Log\CakeLog.php</li><li><strong>12</strong>CORE/Log\LogEngineCollection.php</li><li><strong>13</strong>CORE/Utility\ObjectCollection.php</li><li><strong>14</strong>CORE/Log\Engine\FileLog.php</li><li><strong>15</strong>CORE/Log\Engine\BaseLog.php</li><li><strong>16</strong>CORE/Log\CakeLogInterface.php</li><li><strong>17</strong>CORE/Core\CakePlugin.php</li><li><strong>18</strong>CORE/Utility\Debugger.php</li><li><strong>19</strong>CORE/Utility\String.php</li><li><strong>20</strong>CORE/Routing\Dispatcher.php</li><li><strong>21</strong>CORE/Event\CakeEventListener.php</li><li><strong>22</strong>CORE/Network\CakeRequest.php</li><li><strong>23</strong>CORE/Network\CakeResponse.php</li><li><strong>24</strong>CORE/Event\CakeEvent.php</li><li><strong>25</strong>CORE/Event\CakeEventManager.php</li><li><strong>26</strong>CORE/Routing\Filter\AssetDispatcher.php</li><li><strong>27</strong>CORE/Routing\DispatcherFilter.php</li><li><strong>28</strong>CORE/Routing\Filter\CacheDispatcher.php</li><li><strong>29</strong>CORE/Routing\Router.php</li><li><strong>30</strong>CORE/Routing\Route\CakeRoute.php</li><li><strong>31</strong>CORE/Config\routes.php</li><li><strong>32</strong>CORE/Routing\Route\PluginShortRoute.php</li><li><strong>33</strong>CORE/Controller\Controller.php</li><li><strong>34</strong>CORE/Core\Object.php</li><li><strong>35</strong>CORE/Controller\ComponentCollection.php</li><li><strong>36</strong>CORE/Controller\Component.php</li><li><strong>37</strong>CORE/I18n\I18n.php</li><li><strong>38</strong>CORE/I18n\L10n.php</li><li><strong>39</strong>CORE/Model\Datasource\CakeSession.php</li><li><strong>40</strong>CORE/Controller\Component\SessionComponent.php</li><li><strong>41</strong>CORE/Controller\Component\PaginatorComponent.php</li><li><strong>42</strong>CORE/View\HelperCollection.php</li><li><strong>43</strong>CORE/Utility\ClassRegistry.php</li><li><strong>44</strong>CORE/Model\Model.php</li><li><strong>45</strong>CORE/Model\BehaviorCollection.php</li><li><strong>46</strong>CORE/Model\ConnectionManager.php</li><li><strong>47</strong>CORE/Model\Datasource\Database\Mysql.php</li><li><strong>48</strong>CORE/Model\Datasource\DboSource.php</li><li><strong>49</strong>CORE/Model\Datasource\DataSource.php</li><li><strong>50</strong>CORE/Config\config.php</li></ul></li></ul></li><li><strong>app</strong><ul class="neat-array depth-1"><li><strong>Other</strong><ul class="neat-array depth-2"><li><strong>0</strong>APP/webroot\index.php</li><li><strong>1</strong>APP/Config\core.php</li><li><strong>2</strong>APP/Config\bootstrap.php</li><li><strong>3</strong>APP/Config\routes.php</li><li><strong>4</strong>APP/Controller\TrackerInfosController.php</li><li><strong>5</strong>APP/Controller\AppController.php</li><li><strong>6</strong>APP/Controller\Component\UserDataComponent.php</li><li><strong>7</strong>APP/Model\Company.php</li><li><strong>8</strong>APP/Model\AppModel.php</li><li><strong>9</strong>APP/Config\database.php</li><li><strong>10</strong>APP/Model\TrackerInfo.php</li></ul></li></ul></li><li><strong>plugins</strong><ul class="neat-array depth-1"><li><strong>DebugKit</strong><ul class="neat-array depth-2"><li><strong>Other</strong><ul class="neat-array depth-3"><li><strong>0</strong>DebugKit/Controller\Component\ToolbarComponent.php</li><li><strong>1</strong>DebugKit/Lib\DebugMemory.php</li><li><strong>2</strong>DebugKit/Lib\Panel\HistoryPanel.php</li><li><strong>3</strong>DebugKit/Lib\DebugPanel.php</li><li><strong>4</strong>DebugKit/Lib\Panel\SessionPanel.php</li><li><strong>5</strong>DebugKit/Lib\Panel\RequestPanel.php</li><li><strong>6</strong>DebugKit/Lib\Panel\SqlLogPanel.php</li><li><strong>7</strong>DebugKit/Lib\Panel\TimerPanel.php</li><li><strong>8</strong>DebugKit/Lib\Panel\LogPanel.php</li><li><strong>9</strong>DebugKit/Lib\Log\Engine\DebugKitLog.php</li><li><strong>10</strong>DebugKit/Lib\Panel\VariablesPanel.php</li><li><strong>11</strong>DebugKit/Lib\Panel\EnvironmentPanel.php</li><li><strong>12</strong>DebugKit/Lib\Panel\IncludePanel.php</li><li><strong>13</strong>DebugKit/Lib\DebugTimer.php</li></ul></li></ul></li></ul></li></ul>						</div>
+						<div class="panel-content-data panel-history" id="include-history">
+							<!-- content here -->
+						</div>
+					</div>
+					<div class="panel-resize-handle ui-control">====</div>
+				</div>
+						</li>
+				</ul>
+	</div>
+
+</body>
+</html>
