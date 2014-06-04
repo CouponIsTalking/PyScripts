@@ -140,7 +140,7 @@ class WebInterface:
                     'type':news['type']
                   }
         
-        update_url = AB_SITE_NAME+'/contents/add_from_script/'+ AB_PYTHON_VERIFICATION_CODE;
+        update_url = SITE_NAME+'/contents/add_from_script/'+ PYTHON_VERIFICATION_CODE;
         user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
         headers = { 'User-Agent' : user_agent }
         data = urllib.urlencode(data)
@@ -213,10 +213,7 @@ class WebInterface:
     
     def update_prod_info_in_db(self, prod_info):
         
-        if 'live' == RUN_WHERE:
-            url_to_call = LIVE_SITE_NAME+'/products/update_prod_info_from_script/'+ LIVE_PYTHON_VERIFICATION_CODE;
-        else:
-            url_to_call = SITE_NAME+'/products/update_prod_info_from_script/'+ PYTHON_VERIFICATION_CODE;
+        url_to_call = SITE_NAME+'/products/update_prod_info_from_script/'+ PYTHON_VERIFICATION_CODE;
         
         user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
         headers = { 'User-Agent' : user_agent }
@@ -392,11 +389,7 @@ class WebInterface:
     #--------------------------------------------
     def get_tracker_info ( self, website ):
         
-        
-        if 'live' == RUN_WHERE:
-            url_to_call = LIVE_SITE_NAME+'/tracker_infos/get_tracker_info_from_script/'+ LIVE_PYTHON_VERIFICATION_CODE;
-        else:
-            url_to_call = SITE_NAME+'/tracker_infos/get_tracker_info_from_script/'+ PYTHON_VERIFICATION_CODE;
+        url_to_call = SITE_NAME+'/tracker_infos/get_tracker_info_from_script/'+ PYTHON_VERIFICATION_CODE;
         data = {'website' : get_website_name_for_tracker_update(website) }
         user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
         headers = { 'User-Agent' : user_agent }
@@ -567,10 +560,7 @@ class WebInterface:
             
     def price_update ( self, prod_id, new_price ):
         
-        if 'live' == RUN_WHERE:
-            url_to_call = LIVE_SITE_NAME+'/products/update_price_from_script/'+ LIVE_PYTHON_VERIFICATION_CODE;
-        else:
-            url_to_call = SITE_NAME+'/products/update_price_from_script/'+ PYTHON_VERIFICATION_CODE;
+        url_to_call = SITE_NAME+'/products/update_price_from_script/'+ PYTHON_VERIFICATION_CODE;
         
         user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
         headers = { 'User-Agent' : user_agent }
@@ -592,10 +582,7 @@ class WebInterface:
     
     def get_prod_list_for_price_update ( self ):
         
-        if 'live' == RUN_WHERE:
-            url_to_call = LIVE_SITE_NAME+'/products/plist_for_price_check/'+ LIVE_PYTHON_VERIFICATION_CODE;
-        else:
-            url_to_call = SITE_NAME+'/products/plist_for_price_check/'+ PYTHON_VERIFICATION_CODE;
+        url_to_call = SITE_NAME+'/products/plist_for_price_check/'+ PYTHON_VERIFICATION_CODE;
         
         user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
         headers = { 'User-Agent' : user_agent }
